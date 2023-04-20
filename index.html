@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-entrega 3: Lorena Muñoz</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <!-- Libreria Js Hystmodal -->
+    <link rel="stylesheet" href="Assets/ext/hystmodal.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href=""><img src="Assets/IMG/logo.png" alt=""></a>
+            <ul>
+                <li onclick="mostrarCriaturas('')">Todas las criaturas</li>
+                <li onclick="mostrarCriaturas('Bosque')">Habitat Bosque</li>
+                <li onclick="mostrarCriaturas('Urbano')">Habitat Urbano</li>
+                <li class="btn-agregar" onclick="abrirModalCreacion()">Agregar nueva criatura</li>
+           </ul>
+        </nav>
+    </header>
+    <!-- Criaturas -->
+    <main>
+        <div class="contenedor-criaturas">
+            <div id="Acromantula" class="criatura-ind criatura-inact" onclick="modalDetalleCriatura('Acromantula')">
+               <img src="Assets/IMG/acromantula.png" alt="">
+            </div>
+            <div id="Basilisco"  class="criatura-ind criatura-inact" onclick="modalDetalleCriatura('Basilisco')">
+                <img src="Assets/IMG/basilisco.png" alt="">
+            </div>
+            <div id="Bowtruckle" class="criatura-ind criatura-inact" onclick="modalDetalleCriatura('Bowtruckle')">
+                <img src="Assets/IMG/bowtruckle.png" alt="">
+            </div>
+            <div id="Demiguise" class="criatura-ind criatura-inact" onclick="modalDetalleCriatura('Demiguise')">
+                <img src="Assets/IMG/demiguise.png" alt="">
+            </div>
+            <div id="Escarbato" class="criatura-ind criatura-inact" onclick="modalDetalleCriatura('Escarbato')">
+                <img src="Assets/IMG/escarbato.png" alt="">
+            </div>
+            <div id="Occamy" class="criatura-ind criatura-inact" onclick="modalDetalleCriatura('Occamy')">
+                <img src="Assets/IMG/occamy.png" alt="">
+            </div>
+            <div id="Phoenix" class="criatura-ind criatura-inact" onclick="modalDetalleCriatura('Phoenix')">
+                <img src="Assets/IMG/phoenix.png" alt="">
+            </div>
+            <div id="Quimera" class="criatura-ind criatura-inact" onclick="modalDetalleCriatura('Quimera')">
+                <img src="Assets/IMG/quimera.png" alt="">
+            </div>
+            <div id="Unicorn" class="criatura-ind criatura-inact" onclick="modalDetalleCriatura('Unicorn')">
+                <img src="Assets/IMG/unicorn.png" alt="">
+            </div>
+            <div id="Thestral" class="criatura-ind criatura-inact" onclick="modalDetalleCriatura('Thestral')">
+                <img src="Assets/IMG/thestral.png" alt="">
+            </div>
+        </div>
+    </main>
+    <!-- MODAL CON LOS DETALLES DE LAS CRIATURAS -->
+    <div class="hystmodal" id="modalDetalle" aria-hidden="true">
+        <div class="hystmodal__wrap">
+            <div class="hystmodal__window" role="dialog" aria-modal="true">
+                <button data-hystclose class="hystmodal__close">Закрыть</button>
+                <div class="cont-detalles">
+                    <div class="cont-detalles-criaturas">
+                        <img id="imagenDetalle" src="Assets/IMG/basilisco.png" alt="">
+                        <h3 id="nombreDetalle" class="detalles-nombre">Nombre</h3>
+                        <h5 id="especieDetalle" class="detalles-especie">especie</h5>
+                        <ul class="datos-criatura">
+                            <li class="datos-t">edad:</li>
+                            <li id="edadDetalle" class="dato-edad">edad</li>
+                            <li class="datos-t">sexo:</li>
+                            <li id="sexoDetalle" class="dato-sexo">sexo</li>
+                            <li class="datos-t">Habitat:</li>
+                            <li id="habitatDetalle" class="dato-habitat">habitat</li>
+                        </ul>
+                        <p id="descripcionDetalle" class="dato-descripcion">
+                        Lorem ipsum 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL DE CREACION DE NUEVAS CRIATURAS -->
+    <div class="hystmodal" id="modalCreacionCriatura" aria-hidden="true">
+        <div class="hystmodal__wrap">
+            <div class="hystmodal__window" role="dialog" aria-modal="true">
+                <button data-hystclose class="hystmodal__close">Закрыть</button>
+                <form class="creador-cont">
+                    <label for="">Nombre de la criatura:</label>
+                    <input id="nombre" name="nombre" type="text" placeholder="Ingresa el nombre personal de la criatura">
+                    <label for="">Escpecie de la criatura:</label>
+                    <select name="especie" id="especie">
+                        <option value="basilisco">Basilisc</option>
+                        <option value="bowtruckle">Bowtruckle</option>
+                        <option value="escarbato">Escarbato</option>
+                        <option value="phoenix">Phoenix</option>
+                        <option value="quimera">Quimera</option>
+                        <option value="unicorn">Unicorn</option>
+                        <option value="thestral">Thestral</option>
+                      </select>
+                    <label for="">Ingresa la edad :</label>
+                    <input id="edad" name="edad" type="text" placeholder="No olvides especificar si son meses o años">
+                    <label for="">Sexo de la criatura:</label>
+                    <input id="sexo" name="sexo" type="text" placeholder="Si no sabes, ingresa indefinido">
+                    <label for="">Habitat de la criatura:</label>
+                    <input id="habitat" name="habitat" type="text" placeholder="Ingresa su habitat natural, no donde fue encontrada">
+                    <button type="button" onclick="crearCriatura()">Registrar criatura</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 2023 Lorena Muñoz</p>
+    </footer>
+        <!-- libreria JS Hystmodal -->
+        <script src="Assets/ext/hystmodal.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
